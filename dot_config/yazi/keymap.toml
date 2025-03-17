@@ -56,13 +56,13 @@ keymap = [
 	{ on = "J", run = "seek 5",  desc = "Seek down 5 units in the preview" },
 
 	# Spotting
-	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
+	# { on = "<Tab>", run = "spot", desc = "Spot hovered file" }, CHANGE BINDING
 
 	# Operation
-	{ on = "o",         	run = "open",                        desc = "Open selected files" },
-	{ on = "O",         	run = "open --interactive",          desc = "Open selected files interactively" },
+	# { on = "o",         	run = "open",                        desc = "Open selected files" },
+	{ on = "o",         	run = "open --interactive",          desc = "Open selected files interactively" },
 	{ on = "<Enter>",   	run = "open",                        desc = "Open selected files" },
-	{ on = "<S-Enter>", 	run = "open --interactive",          desc = "Open selected files interactively" },
+	# { on = "<S-Enter>", 	run = "open --interactive",          desc = "Open selected files interactively" },
 	{ on = "y",         	run = "yank",                        desc = "Yank selected files (copy)" },
 	{ on = "x",         	run = "yank --cut",                  desc = "Yank selected files (cut)" },
 	{ on = "p",         	run = "paste",                       desc = "Paste yanked files" },
