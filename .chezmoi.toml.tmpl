@@ -1,0 +1,3 @@
+{{ $hostname := promptStringOnce . "hostname" "What is your hostname" -}}
+sourceDir = '/home/{{ $hostname }}/.config/dotfiles'
+
