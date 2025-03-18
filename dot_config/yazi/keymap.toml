@@ -43,7 +43,7 @@ keymap = [
 	# { on = "L", run = "forward", desc = "Go forward to the next directory" },
 
 	# Toggle
-	{ on = "<Space>", run = [ "toggle", "arrow 1" ], desc = "Toggle the current selection state" },
+	{ on = [ "<Space>", "<Space>" ], run = [ "toggle", "arrow 1" ], desc = "Toggle the current selection state" },
 	# { on = "<S-a>",   run = "toggle_all --state=on", desc = "Select all files" },
 	{ on = "<S-a>",   run = "toggle_all",            desc = "Invert selection of all files" },
 
@@ -423,4 +423,9 @@ desc = "Delete a bookmark"
 [[manager.prepend_keymap]]
 on  = "M"
 run = "plugin mount"
+
+[[manager.prepend_keymap]]
+on  = [ "<Space>", "l", "g" ]
+run  = "plugin lazygit"
+desc = "run lazygit"
 
