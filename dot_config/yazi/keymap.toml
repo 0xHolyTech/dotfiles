@@ -420,3 +420,7 @@ on = [ "m", "d" ]
 run = "plugin bookmarks delete"
 desc = "Delete a bookmark"
 
+[[manager.prepend_keymap]]
+on  = "M"
+run = "plugin mount"
+
