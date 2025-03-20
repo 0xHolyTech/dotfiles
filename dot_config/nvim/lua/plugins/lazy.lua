@@ -24,7 +24,35 @@ vim.g.maplocalleader = " "
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    { "folke/tokyonight.nvim", config = function() vim.cmd.colorscheme "tokyonight" end }
+    { "folke/tokyonight.nvim", config = function() vim.cmd.colorscheme "tokyonight" end },
+    {
+      "mikavilpas/yazi.nvim",
+      event = "VeryLazy",
+      dependencies = { "folke/snacks.nvim", lazy = true },
+      keys = {
+        {
+          "<leader>E",
+          mode = { "n", "v" },
+          "<cmd>Yazi<cr>",
+          desc = "Open yazi at the current file",
+        },
+        {
+          "<leader>e",
+	  mode = { "n", "v" },
+          "<cmd>Yazi toggle<cr>",
+          desc = "Resume the last yazi session",
+        }
+      },
+      opts = {
+        open_for_directories = false,
+        keymaps = {
+          show_help = "<f1>",
+        },
+      },
+      init = function()
+        vim.g.loaded_netrwPlugin = 1
+      end,
+    }
   },
 })
 
