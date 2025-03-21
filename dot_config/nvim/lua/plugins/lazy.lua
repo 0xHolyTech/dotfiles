@@ -72,7 +72,6 @@ require("lazy").setup({
             'nvim-telescope/telescope.nvim', tag = '0.1.4',
             dependencies = {{ 'nvim-lua/plenary.nvim' }}
         }, -- sf (find) sF (find files) sg (find git)
-        { 'catppuccin/nvim', as = "catppuccin" },
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
         { 'theprimeagen/harpoon' }, -- ee/ea/e#
         { 'mbbill/undotree' }, -- tu
@@ -113,14 +112,14 @@ require("lazy").setup({
         },
         { 'williamboman/mason-lspconfig.nvim' },
         {
-            "jay-babu/mason-null-ls.nvim",
+            'jay-babu/mason-null-ls.nvim',
             dependencies = {
-                "williamboman/mason.nvim",
-                "nvimtools/none-ls.nvim",
+                'williamboman/mason.nvim',
+                'nvimtools/none-ls.nvim',
             },
         },
-        { "gbprod/none-ls-shellcheck.nvim" },
-        { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+        { 'gbprod/none-ls-shellcheck.nvim' },
+        { 'rcarriga/nvim-dap-ui', dependencies = {'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio'} },
         {
             'kylechui/nvim-surround',
             -- tag = '*',
@@ -160,7 +159,6 @@ require("lazy").setup({
             end
         }, -- et (TODO Replace)
         { 'terryma/vim-multiple-cursors' }, -- v mode C-n
-        { 'tpope/vim-commentary' }, -- gcc toggle comments TODO change to mc
         { 'preservim/tagbar' }, -- tt toggle tagbar
         {
             'folke/trouble.nvim',
@@ -170,7 +168,7 @@ require("lazy").setup({
                 require('trouble').setup({})
             end
         }, -- td toggle diagnostics
-        { "laytan/cloak.nvim" },
+        { 'laytan/cloak.nvim' },
     },
 })
 
