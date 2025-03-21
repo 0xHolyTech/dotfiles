@@ -29,20 +29,6 @@ require("lazy").setup({
             "mikavilpas/yazi.nvim",
             event = "VeryLazy",
             dependencies = { "folke/snacks.nvim", lazy = true },
-            keys = {
-                {
-                    "<leader>ER",
-                    mode = { "n", "v" },
-                    "<cmd>Yazi<cr>",
-                    desc = "Open yazi at the current file",
-                },
-                {
-                    "<leader>er",
-                    mode = { "n", "v" },
-                    "<cmd>Yazi toggle<cr>",
-                    desc = "Resume the last yazi session",
-                }
-            },
             opts = {
                 open_for_directories = false,
                 keymaps = {
