@@ -31,13 +31,13 @@ require("lazy").setup({
             dependencies = { "folke/snacks.nvim", lazy = true },
             keys = {
                 {
-                    "<leader>E",
+                    "<leader>ER",
                     mode = { "n", "v" },
                     "<cmd>Yazi<cr>",
                     desc = "Open yazi at the current file",
                 },
                 {
-                    "<leader>e",
+                    "<leader>er",
                     mode = { "n", "v" },
                     "<cmd>Yazi toggle<cr>",
                     desc = "Resume the last yazi session",
