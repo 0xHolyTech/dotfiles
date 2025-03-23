@@ -1,0 +1,10 @@
+[pyprland]
+plugins = ["toggle_special", "magnify", "shift_monitors", "system_notifier", "scratchpads"]
+
+[scratchpads.spotify]
+animation = "fromTop"
+command = "LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify"
+class = "Spotify"
+size = "99% 95%"
+max_size = "1920px 100%"
+margin = 50
