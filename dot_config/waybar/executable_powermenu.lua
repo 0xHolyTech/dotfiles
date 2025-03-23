@@ -4,7 +4,7 @@ local options = {
     [" Shut down"] = "systemctl poweroff",
     [" Reboot"] = "systemctl reboot",
     ["﫼 Log out"] = "loginctl kill-user $USER",
-    ["⏸ Suspend"] = "systemctl suspend",
+    ["⏱ Suspend"] = "systemctl suspend",
     [" Hibernate"] = "systemctl hibernate",
 }
 
