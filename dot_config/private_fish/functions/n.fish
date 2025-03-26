@@ -1,4 +1,4 @@
 function n --description 'alias nvim=n'
-  nvim $argv
+    nvim $argv
 end
 
