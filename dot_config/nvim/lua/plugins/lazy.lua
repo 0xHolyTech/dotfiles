@@ -38,7 +38,7 @@ require("lazy").setup({
             init = function()
                 vim.g.loaded_netrwPlugin = 1
             end
-        },
+        }, -- er terminal file explorer ontop of nvim
         {
             'kdheepak/lazygit.nvim',
             dependencies = {
@@ -57,7 +57,7 @@ require("lazy").setup({
         {
             'nvim-telescope/telescope.nvim', tag = '0.1.4',
             dependencies = {{ 'nvim-lua/plenary.nvim' }}
-        }, -- sf (find) sF (find files) sg (find git)
+        }, -- sF (find term in project) sf (find files in project) sg (find git)
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
         { 'theprimeagen/harpoon' }, -- ee/ea/e#
         { 'mbbill/undotree' }, -- tu
@@ -112,7 +112,7 @@ require("lazy").setup({
             config = function()
                 require('nvim-surround').setup({})
             end
-        }, -- ysiw" ysi" ys$" cs'" ds" dsf (function calls)
+        }, -- ysiw" (one word) yse" (vim motion e example) ys$" (vim motion $ example) cs'" (change ' to " example) ds" (remove " example) dsf (delete function??)
         {
             'Wansmer/treesj',
             dependencies = { 'nvim-treesitter/nvim-treesitter' },
@@ -122,7 +122,7 @@ require("lazy").setup({
                     dot_repeat = false,
                 })
             end
-        }, -- <leader>j (join) <leader>s (split)
+        }, -- <leader>j (join) <leader>s (split) ??? NOT WORKING?
         {
             'linux-cultist/venv-selector.nvim',
             dependencies = {
