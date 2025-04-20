@@ -59,7 +59,11 @@ require("lazy").setup({
             dependencies = {{ 'nvim-lua/plenary.nvim' }}
         }, -- sF (find term in project) sf (find files in project) sg (find git)
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
-        { 'theprimeagen/harpoon' }, -- ee/ea/e#
+        {
+            'theprimeagen/harpoon',
+            branch = "harpoon2",
+            requires={ {"nvim-lua/plenary.nvim"} },
+        }, -- ee/ea/e#
         { 'mbbill/undotree' }, -- tu
         {
             'nvim-lualine/lualine.nvim',
