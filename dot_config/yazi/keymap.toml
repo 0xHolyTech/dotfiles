@@ -75,7 +75,7 @@ keymap = [
 	{ on = [ "d", "d" ],	run = "remove",                      desc = "Trash selected files" },
 	{ on = [ "d", "D" ],	run = "remove --permanently",        desc = "Permanently delete selected files" },
 	# { on = "a",         	run = "create",                      desc = "Create a file (ends with / for directories)" },
-	# { on = "r",         	run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
+	{ on = "i",         	run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
 	{ on = "s",         	run = "shell --interactive",         desc = "Run a shell command" },
 	{ on = "S",         	run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
 	{ on = "<Backspace>",	run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
@@ -125,10 +125,10 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
-	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+	# { on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
+	# { on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
+	# { on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
+	# { on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
