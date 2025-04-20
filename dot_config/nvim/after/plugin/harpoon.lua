@@ -1,5 +1,17 @@
 local harpoon = require("harpoon")
-harpoon:setup()
+harpoon:setup({
+    default = {
+        get_root_dir = function ()
+            local cwd = vim.loop.cwd()
+            local root = vim.fn.system("git rev-parse --show-toplevel")
+            if vim.v.shell_error == 0 and root ~= nil then
+                return string.gsub(root, "\n", "")
+            end
+            return cwd
+            end
+        }
+    }
+)
 
 
 vim.keymap.set("n", "<leader>ea", function() harpoon:list():add() end)
