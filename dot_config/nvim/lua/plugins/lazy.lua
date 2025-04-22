@@ -47,9 +47,7 @@ require("lazy").setup({
         }, -- lg + terminal shortcuts + lazygit shortcuts TODO (Configure)
         {
             'crnvl96/lazydocker.nvim',
-            config = function()
-                require('lazydocker').setup()
-            end,
+            opts={},
             dependencies = {
                 'MunifTanjim/nui.nvim'
             },
@@ -160,5 +158,6 @@ require("lazy").setup({
         }, -- td toggle diagnostics
         { 'laytan/cloak.nvim' },
     },
+    checker = { enabled=true },
 })
 

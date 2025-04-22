@@ -1,34 +1,17 @@
-local ld = require('lazydocker.config')
+local ld = require('lazydocker')
 
 vim.keymap.set('n', '<leader>lg', vim.cmd.LazyGit)
-vim.keymap.set('n', '<leader>ld', vim.cmd.LazyDocker)
+vim.keymap.set('n', '<leader>ld', '<Cmd>lua LazyDocker.toggle()<CR>')
 
-ld.options = {
-  popup_window = {
-    enter = true,
-    focusable = true,
-      zindex = 40,
-      position = "50%",
-      relative = "editor",
-      size = {
-        width = "90%",
-        height = "90%",
-      },
-      buf_options = {
-        modifiable = true,
-        readonly = false,
-      },
-      win_options = {
-        winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-        winblend = 0,
-      },
-      border = {
-        highlight = "FloatBorder",
-        style = "rounded",
-        text = {
-          top = " Lazydocker ",
-        },
-      },
-    }
-}
+-- Default configuration
+ld.setup({
+  window = {
+    settings = {
+      width = 0.9, -- Percentage of screen width (0 to 1)
+      height = 0.9, -- Percentage of screen height (0 to 1)
+      border = 'rounded', -- See ':h nvim_open_win' border options
+      relative = 'editor', -- See ':h nvim_open_win' relative options
+    },
+  },
+})
 
