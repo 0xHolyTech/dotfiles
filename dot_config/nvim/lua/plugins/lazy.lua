@@ -157,6 +157,13 @@ require("lazy").setup({
             end
         }, -- td toggle diagnostics
         { 'laytan/cloak.nvim' },
+        {
+            'lervag/vimtex',
+            lazy = true,
+            init = function()
+                vim.g.vimtex_view_method = "zathura"
+            end
+        }
     },
     checker = { enabled=true },
 })
