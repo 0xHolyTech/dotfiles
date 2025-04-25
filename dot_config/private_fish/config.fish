@@ -3,4 +3,4 @@ if status is-interactive
 end
 
 # Added by LM Studio CLI (lms)
-set -gx PATH $PATH /home/HolyTech/.lmstudio/bin
+set -gx PATH $PATH /home/HolyTech/.lmstudio/bin /home/HolyTech/.cargo/bin
