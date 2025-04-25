@@ -159,7 +159,7 @@ require("lazy").setup({
         { 'laytan/cloak.nvim' },
         {
             'lervag/vimtex',
-            lazy = true,
+            lazy = false,
             init = function()
                 vim.g.vimtex_view_method = 'zathura'
                 vim.g.vimtex_view_general_viewer = 'okular'
