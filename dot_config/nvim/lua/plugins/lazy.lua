@@ -124,7 +124,7 @@ require("lazy").setup({
                     dot_repeat = false,
                 })
             end
-        }, -- <leader>j (join) <leader>s (split) ??? NOT WORKING?
+        }, -- <leader>j (join) <leader>s (split)
         {
             'linux-cultist/venv-selector.nvim',
             dependencies = {
@@ -137,7 +137,7 @@ require("lazy").setup({
                 require('venv-selector').setup()
                 vim.keymap.set('n', '<leader>mv', '<cmd>VenvSelect<CR>')
             end,
-        },
+        }, -- <leader>mv change current venv environment
         { 'f-person/git-blame.nvim' },
         {
             'akinsho/toggleterm.nvim',
