@@ -27,6 +27,15 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.g.arduino_recommended_style = 0
+vim.g.gdscript_recommended_style = 0
+vim.g.gleam_recommended_style = 0
+vim.g.go_recommended_style = 0
+vim.g.markdown_recommended_style = 0
+vim.g.python_recommended_style = 0
+vim.g.yaml_recommended_style = 0
+vim.g.zig_recommended_style = 0
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
