@@ -169,6 +169,6 @@ require("lazy").setup({
             dir = '~/Public/amai.nvim',
         }
     },
-    checker = { enabled=true },
+    checker = { enabled = false },
 })
 
