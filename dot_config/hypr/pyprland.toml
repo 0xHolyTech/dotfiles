@@ -8,3 +8,12 @@ class = "Spotify"
 size = "99% 95%"
 max_size = "1920px 100%"
 margin = 50
+
+[scratchpads.obsidian]
+animation = "fromRight"
+command = "obsidian"
+class = "Obsidian"
+size = "99% 95%"
+max_size = "1920px 100%"
+margin = 50
+
