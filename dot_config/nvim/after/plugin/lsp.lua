@@ -4,7 +4,7 @@ local function opt(desc)
     return { buffer = bufnr, desc = "LSP " .. desc }
 end
 
-function custom_on_attach(client, bufnr)
+local function custom_on_attach(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   -- lsp_zero.default_keymaps({buffer = bufnr})
@@ -24,7 +24,7 @@ lsp_zero.on_attach(custom_on_attach)
 
 lsp_zero.setup_servers({ 'gopls', 'basedpyright', 'dockerls', 'yamlls', 'bashls', 'lua_ls' })
 lsp_zero.configure('gopls', {
-    cmd = {'gopls'},
+    cmd = { 'gopls' },
     settings = {
         gopls = {
             completeUnimported = true,
@@ -32,7 +32,7 @@ lsp_zero.configure('gopls', {
             analyses = {
                 unusedparams = true
             },
-        }
+        },
     }
 })
 lsp_zero.use('basedpyright', {
@@ -60,14 +60,65 @@ require('mason').setup({
   },
 })
 require('mason-lspconfig').setup({
-  ensure_installed = {
-      "gopls",
-      "basedpyright",
-      "dockerls",
-      "yamlls",
-      "bashls",
-      "lua_ls",
-  },
+    ensure_installed = {
+        "gopls",
+        "basedpyright",
+        "dockerls",
+        "yamlls",
+        "bashls",
+        "lua_ls",
+    },
+    handlers = {
+        function(server_name)
+            require('lspconfig')[server_name].setup({})
+        end,
+        lua_ls = function()
+            require('lspconfig').lua_ls.setup({
+                settings = {
+                    Lua = {
+                        telemetry = {
+                            enable = false
+                        },
+                    },
+                },
+                on_init = function(client)
+                    local join = vim.fs.joinpath
+                    local path = client.workspace_folders[1].name
+                    -- Don't do anything if there is project local config
+                    if vim.uv.fs_stat(join(path, '.luarc.json'))
+                        or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
+                    then
+                        return
+                    end
+
+                    local nvim_settings = {
+                        runtime = {
+                            -- Tell the language server which version of Lua you're using
+                            version = 'LuaJIT',
+                        },
+                        diagnostics = {
+                            -- Get the language server to recognize the `vim` global
+                            globals = { 'vim', 'bufnr' }
+                        },
+                        workspace = {
+                            checkThirdParty = false,
+                            library = {
+                                -- Make the server aware of Neovim runtime files
+                                vim.env.VIMRUNTIME,
+                                vim.fn.stdpath('config'),
+                            },
+                        },
+                    }
+
+                    client.config.settings.Lua = vim.tbl_deep_extend(
+                        'force',
+                        client.config.settings.Lua,
+                        nvim_settings
+                    )
+                end,
+            })
+        end,
+    },
 })
 local null_ls = require('null-ls')
 null_ls.setup({
