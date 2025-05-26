@@ -27,7 +27,7 @@ image_filter    = "triangle"
 image_quality   = 75
 sixel_fraction  = 15
 ueberzug_scale  = 1
-ueberzug_offset = [ 0, 0, 0, 0 ]
+ueberzug_offset = [ 12, 3.5, 0, 0 ]
 
 [opener]
 edit = [
