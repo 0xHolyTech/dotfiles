@@ -167,6 +167,9 @@ require("lazy").setup({
         },
         {
             dir = '~/Public/amai.nvim',
+        },
+        {
+            dir = '~/Public/shortcuts.nvim',
         }
     },
     checker = { enabled = false },
