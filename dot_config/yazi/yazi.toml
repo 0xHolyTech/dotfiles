@@ -2,7 +2,7 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio          = [ 1, 3, 4 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
@@ -148,12 +148,12 @@ previewers = [
 	{ name = "*", run = "file" },
 ]
 prepend_previewers = [
-    { name = "*.csv", run = "rich-preview"}, # for csv files
-    { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
-    { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
-    { name = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
-    { name = "*.json", run = "rich-preview"}, # for json (.json) files
-    { name = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
+    # { name = "*.csv", run = "rich-preview"}, # for csv files
+    # { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
+    # { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
+    # { name = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
+    # { name = "*.json", run = "rich-preview"}, # for json (.json) files
+    # { name = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
 ]
 
 [input]

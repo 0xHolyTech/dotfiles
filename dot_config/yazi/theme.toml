@@ -18,7 +18,7 @@ light = ""
 
 # : Manager {{{
 
-[manager]
+[mgr]
 cwd = { fg = "#7aa2f7" }  # Blue
 
 # Hovered
@@ -925,3 +925,4 @@ conds = [
 ]
 
 # : }}}
+
