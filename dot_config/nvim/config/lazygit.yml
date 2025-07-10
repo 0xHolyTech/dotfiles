@@ -1,0 +1,6 @@
+customCommands:
+  - key: 'E'
+    context: "files"
+    command: 'nohup sh ~/.config/nvim/scripts/nvim_send_file.sh {{.SelectedWorktree.Path}}/{{.SelectedFile.Name}} $NVIM_SOCKET &'
+    description: "Open in nvim"
+
