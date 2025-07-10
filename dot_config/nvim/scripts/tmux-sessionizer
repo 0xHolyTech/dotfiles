@@ -18,12 +18,12 @@ tmux_running=$(pgrep tmux)
 
 if ! byobu has-session -t="${selected_name}" 2> /dev/null; then
     byobu new-session -ds "${selected_name}" -c "${selected_path}"
-    byobu send -t "${selected_name}".0 nvim SPACE ENTER
+    byobu send -t "${selected_name}".0 n SPACE ENTER
 fi
 
 if [[ -z $BYOBU ]] && [[ -z "${tmux_running}" ]]; then
     byobu new-session -s "${selected_name}" -c "${selected_path}"
-    byobu send -t "${selected_name}".0 nvim SPACE ENTER
+    byobu send -t "${selected_name}".0 n SPACE ENTER
     exit 0
 fi
 
