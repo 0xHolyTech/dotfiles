@@ -37,7 +37,10 @@ vim.g.yaml_recommended_style = 0
 vim.g.zig_recommended_style = 0
 
 vim.g.lazygit_use_custom_config_file_path = 1
-vim.g.lazygit_config_file_path = os.getenv("HOME") .. "/.config/nvim/config/lazygit.yml"
+vim.g.lazygit_config_file_path = {
+    os.getenv("HOME") .. "/.config/lazygit/config.yml",
+    os.getenv("HOME") .. "/.config/nvim/config/lazygit.yml"
+}
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
