@@ -22,7 +22,7 @@ end
 
 lsp_zero.on_attach(custom_on_attach)
 
-lsp_zero.setup_servers({ 'gopls', 'basedpyright', 'dockerls', 'yamlls', 'bashls', 'lua_ls' })
+lsp_zero.setup_servers({ 'gopls', 'basedpyright', 'dockerls', 'yamlls', 'bashls', 'lua_ls', 'gdtoolkit' })
 lsp_zero.configure('gopls', {
     cmd = { 'gopls' },
     settings = {
@@ -77,6 +77,7 @@ require('mason-lspconfig').setup({
         "yamlls",
         "bashls",
         "lua_ls",
+        "gdtoolkit",
     },
     handlers = {
         function(server_name)
