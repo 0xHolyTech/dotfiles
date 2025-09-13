@@ -22,7 +22,15 @@ end
 
 lsp_zero.on_attach(custom_on_attach)
 
-lsp_zero.setup_servers({ 'gopls', 'basedpyright', 'dockerls', 'yamlls', 'bashls', 'lua_ls', 'gdtoolkit' })
+lsp_zero.use('gdscript', {
+    force_setup = true, -- because the LSP is global. Read more on lsp-zero docs about this.
+    single_file_support = false,
+    vim.lsp.rpc.connect('127.0.0.1', 6005),
+    root_dir = require('lspconfig.util').root_pattern('project.godot', '.git'),
+    filetypes = {'gd', 'gdscript', 'gdscript3' }
+})
+
+lsp_zero.setup_servers({ 'gopls', 'basedpyright', 'dockerls', 'yamlls', 'bashls', 'lua_ls' })
 lsp_zero.configure('gopls', {
     cmd = { 'gopls' },
     settings = {
@@ -77,7 +85,6 @@ require('mason-lspconfig').setup({
         "yamlls",
         "bashls",
         "lua_ls",
-        "gdtoolkit",
     },
     handlers = {
         function(server_name)
