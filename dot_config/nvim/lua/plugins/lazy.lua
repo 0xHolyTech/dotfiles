@@ -57,11 +57,11 @@ require("lazy").setup({
             dependencies = {{ 'nvim-lua/plenary.nvim' }}
         }, -- sF (find term in project) sf (find files in project) sg (find git)
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
-        {
-            'theprimeagen/harpoon',
-            branch = "harpoon2",
-            requires={ {"nvim-lua/plenary.nvim"} },
-        }, -- ee/ea/e#
+        -- {
+        --     'theprimeagen/harpoon',
+        --     branch = "harpoon2",
+        --     requires={ {"nvim-lua/plenary.nvim"} },
+        -- }, -- ee/ea/e#
         { 'mbbill/undotree' }, -- tu
         {
             'nvim-lualine/lualine.nvim',
@@ -107,7 +107,6 @@ require("lazy").setup({
             },
         },
         { 'gbprod/none-ls-shellcheck.nvim' },
-        { 'rcarriga/nvim-dap-ui', dependencies = {'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio'} },
         {
             'kylechui/nvim-surround',
             -- tag = '*',
@@ -124,7 +123,7 @@ require("lazy").setup({
                     dot_repeat = false,
                 })
             end
-        }, -- <leader>j (join) <leader>s (split)
+        }, -- <leader>sj (join) <leader>ss (split)
         {
             'linux-cultist/venv-selector.nvim',
             dependencies = {
@@ -138,15 +137,7 @@ require("lazy").setup({
             },
         }, -- <leader>mv change current venv environment
         { 'f-person/git-blame.nvim' },
-        {
-            'akinsho/toggleterm.nvim',
-            -- tag = '*',
-            config = function()
-                require('toggleterm').setup()
-            end
-        }, -- et (TODO Replace)
         { 'terryma/vim-multiple-cursors' }, -- v mode C-n
-        { 'preservim/tagbar' }, -- tt toggle tagbar
         {
             'folke/trouble.nvim',
             opts = {},
@@ -165,12 +156,26 @@ require("lazy").setup({
             end
         },
         {
-            "3rd/image.nvim",
-            build = false,
-            opts = {
-                processor = "magick_cli",
-            }
+            'rcarriga/nvim-dap-ui',
+            dependencies = {
+                'mfussenegger/nvim-dap',
+                'nvim-neotest/nvim-nio',
+            },
         },
+        -- {
+        --     "3rd/image.nvim",
+        --     build = false,
+        --     opts = {
+        --         processor = "magick_cli",
+        --         integrations = {
+        --             markdown = {
+        --                 only_render_image_at_cursor = true,
+        --                 only_render_image_at_cursor_mode = "inline",
+        --                 clear_in_insert_mode = true,
+        --             },
+        --         },
+        --     }
+        -- },
         {
             dir = '~/Public/amai.nvim',
         },
