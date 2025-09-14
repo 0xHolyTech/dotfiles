@@ -137,7 +137,6 @@ require("lazy").setup({
             },
         }, -- <leader>mv change current venv environment
         { 'f-person/git-blame.nvim' },
-        { 'terryma/vim-multiple-cursors' }, -- v mode C-n
         {
             'folke/trouble.nvim',
             opts = {},
@@ -162,20 +161,28 @@ require("lazy").setup({
                 'nvim-neotest/nvim-nio',
             },
         },
-        -- {
-        --     "3rd/image.nvim",
-        --     build = false,
-        --     opts = {
-        --         processor = "magick_cli",
-        --         integrations = {
-        --             markdown = {
-        --                 only_render_image_at_cursor = true,
-        --                 only_render_image_at_cursor_mode = "inline",
-        --                 clear_in_insert_mode = true,
-        --             },
-        --         },
-        --     }
-        -- },
+        { 'terryma/vim-multiple-cursors' }, -- v mode C-n
+        {
+            "m4xshen/hardtime.nvim",
+            lazy = false,
+            dependencies = { "MunifTanjim/nui.nvim" },
+            opts = {},
+        },
+        {
+            "folke/noice.nvim",
+            event = "VeryLazy",
+            opts = {
+                -- add any options here
+            },
+            dependencies = {
+                -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+                "MunifTanjim/nui.nvim",
+                -- OPTIONAL:
+                --   `nvim-notify` is only needed, if you want to use the notification view.
+                --   If not available, we use `mini` as the fallback
+                "rcarriga/nvim-notify",
+            }
+        },
         {
             dir = '~/Public/amai.nvim',
         },
