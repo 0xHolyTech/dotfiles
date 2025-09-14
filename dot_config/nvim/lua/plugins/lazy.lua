@@ -133,10 +133,9 @@ require("lazy").setup({
             },
             lazy = false,
             branch = 'regexp',
-            config = function()
-                require('venv-selector').setup()
-                vim.keymap.set('n', '<leader>mv', '<cmd>VenvSelect<CR>')
-            end,
+            keys = {
+                { "<leader>mv", "<cmd>VenvSelect<cr>" }, -- Open picker on keymap
+            },
         }, -- <leader>mv change current venv environment
         { 'f-person/git-blame.nvim' },
         {
