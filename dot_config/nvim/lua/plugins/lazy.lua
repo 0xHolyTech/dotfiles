@@ -166,6 +166,13 @@ require("lazy").setup({
             end
         },
         {
+            "3rd/image.nvim",
+            build = false,
+            opts = {
+                processor = "magick_cli",
+            }
+        },
+        {
             dir = '~/Public/amai.nvim',
         },
         {
