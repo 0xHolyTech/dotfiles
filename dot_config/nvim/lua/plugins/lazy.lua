@@ -3,7 +3,7 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-        if vim.v.shell_error ~= 0 then
+    if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
             { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
             { out, "WarningMsg" },
@@ -57,11 +57,6 @@ require("lazy").setup({
             dependencies = {{ 'nvim-lua/plenary.nvim' }}
         }, -- sF (find term in project) sf (find files in project) sg (find git)
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
-        -- {
-        --     'theprimeagen/harpoon',
-        --     branch = "harpoon2",
-        --     requires={ {"nvim-lua/plenary.nvim"} },
-        -- }, -- ee/ea/e#
         { 'mbbill/undotree' }, -- tu
         {
             'nvim-lualine/lualine.nvim',
@@ -184,11 +179,61 @@ require("lazy").setup({
             }
         },
         {
+            "yetone/avante.nvim",
+            build = "make",
+            event = "VeryLazy",
+            version = false, -- Never set this value to "*"! Never!
+            ---@module 'avante'
+            ---@type avante.Config
+            opts = {
+                instructions_file = "avante.md",
+                provider = "ollama",
+                providers = {
+                    ollama = {
+                        endpoint = "http://127.0.0.1:11434", -- Note that there is no /v1 at the end.
+                        model = "qwen2.5-coder:3b",
+                    },
+                },
+            },
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "MunifTanjim/nui.nvim",
+                --- The below dependencies are optional,
+                "echasnovski/mini.pick", -- for file_selector provider mini.pick
+                "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+                "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+                "ibhagwan/fzf-lua", -- for file_selector provider fzf
+                "stevearc/dressing.nvim", -- for input provider dressing
+                "folke/snacks.nvim", -- for input provider snacks
+                "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+                {
+                    "HakonHarnes/img-clip.nvim",
+                    event = "VeryLazy",
+                    opts = {
+                        default = {
+                            embed_image_as_base64 = false,
+                            prompt_for_file_name = false,
+                            drag_and_drop = {
+                                insert_mode = true,
+                            },
+                        },
+                    },
+                },
+                {
+                    'MeanderingProgrammer/render-markdown.nvim',
+                    opts = {
+                        file_types = { "markdown", "Avante" },
+                    },
+                    ft = { "markdown", "Avante" },
+                },
+            },
+        },
+        {
             dir = '~/Public/amai.nvim',
         },
         {
             'HolyTechGH/shortcuts.nvim',
-        }
+        },
     },
     checker = { enabled = false },
 })
