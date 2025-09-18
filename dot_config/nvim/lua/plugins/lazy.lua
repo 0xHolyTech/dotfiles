@@ -232,7 +232,7 @@ require("lazy").setup({
             dir = '~/Public/amai.nvim',
         },
         {
-            'HolyTechGH/shortcuts.nvim',
+            '0xHolyTech/shortcuts.nvim',
         },
     },
     checker = { enabled = false },
