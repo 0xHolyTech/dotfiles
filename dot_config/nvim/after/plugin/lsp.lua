@@ -26,7 +26,7 @@ lsp_zero.use('gdscript', {
     force_setup = true, -- because the LSP is global. Read more on lsp-zero docs about this.
     single_file_support = false,
     vim.lsp.rpc.connect('127.0.0.1', 6005),
-    root_dir = require('lspconfig.util').root_pattern('project.godot', '.git'),
+    root_markers = { 'project.godot', '.git' },
     filetypes = {'gd', 'gdscript', 'gdscript3' }
 })
 
@@ -88,7 +88,7 @@ require('mason-lspconfig').setup({
     },
     handlers = {
         function(server_name)
-            require('lspconfig')[server_name].setup({})
+            vim.lsp.config(server_name).setup({})
         end,
     },
 })
