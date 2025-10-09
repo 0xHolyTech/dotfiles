@@ -39,7 +39,7 @@ vim.g.zig_recommended_style = 0
 vim.g.lazygit_use_custom_config_file_path = 1
 vim.g.lazygit_config_file_path = {
     os.getenv("HOME") .. "/.config/lazygit/config.yml",
-    os.getenv("HOME") .. "/.config/nvim/config/lazygit.yml"
+    os.getenv("HOME") .. "/.config/nvim/lua/config/lazygit.yml"
 }
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -77,4 +77,6 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("v", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+vim.deprecate = function() end
+
 

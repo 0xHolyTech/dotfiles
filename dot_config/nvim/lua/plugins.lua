@@ -13,15 +13,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         os.exit(1)
     end
 end
-vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
+vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Setup lazy.nvim
 require("lazy").setup({
     spec = {
         { "folke/tokyonight.nvim", config = function() vim.cmd.colorscheme "tokyonight" end },
@@ -84,16 +80,13 @@ require("lazy").setup({
             end,
         },
         {
-            'VonHeikemen/lsp-zero.nvim',
-            branch = 'v3.x',
+            "neovim/nvim-lspconfig",
             dependencies = {
-                {'neovim/nvim-lspconfig'},
-                {'hrsh7th/nvim-cmp'},
+                {'williamboman/mason-lspconfig.nvim'},
                 {'hrsh7th/cmp-nvim-lsp'},
                 {'L3MON4D3/LuaSnip'},
-            }
+            },
         },
-        { 'williamboman/mason-lspconfig.nvim' },
         {
             'jay-babu/mason-null-ls.nvim',
             dependencies = {
@@ -101,7 +94,26 @@ require("lazy").setup({
                 'nvimtools/none-ls.nvim',
             },
         },
-        { 'gbprod/none-ls-shellcheck.nvim' },
+        -- { 'gbprod/none-ls-shellcheck.nvim' },
+        {
+            'saghen/blink.cmp',
+            -- dependencies = { 'rafamadriz/friendly-snippets' },
+            version = '1.*',
+            opts = {
+                -- See :h blink-cmp-config-keymap for defining your own keymap
+                keymap = {
+                    preset = 'enter',
+                    ['<Tab>'] = { 'select_next' },
+                    ['<S-Tab>'] = { 'select_prev' },
+                },
+                completion = { documentation = { auto_show = true } },
+                sources = {
+                  default = { 'lsp', 'path', 'snippets', 'buffer' },
+                },
+                fuzzy = { implementation = "prefer_rust_with_warning" }
+            },
+            opts_extend = { "sources.default" }
+        },
         {
             'kylechui/nvim-surround',
             -- tag = '*',
@@ -237,4 +249,5 @@ require("lazy").setup({
     },
     checker = { enabled = false },
 })
+
 

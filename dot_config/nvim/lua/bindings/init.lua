@@ -1,2 +1,0 @@
-require("bindings.nvim-bindings")
-
