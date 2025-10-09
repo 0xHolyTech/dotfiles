@@ -14,6 +14,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     end
 end
 
+local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -97,16 +103,36 @@ require("lazy").setup({
         -- { 'gbprod/none-ls-shellcheck.nvim' },
         {
             'saghen/blink.cmp',
-            -- dependencies = { 'rafamadriz/friendly-snippets' },
+            dependencies = { 'rafamadriz/friendly-snippets' },
             version = '1.*',
             opts = {
                 -- See :h blink-cmp-config-keymap for defining your own keymap
                 keymap = {
                     preset = 'enter',
-                    ['<Tab>'] = { 'select_next' },
-                    ['<S-Tab>'] = { 'select_prev' },
+                    ['<Tab>'] = {
+                        function(cmp)
+                            if cmp.is_menu_visible() then
+                                return cmp.select_next()
+                            elseif cmp.snippet_active() then
+                                return cmp.snippet_forward()
+                            elseif has_words_before() then
+                                return cmp.show()
+                            end
+                        end,
+                        'fallback',
+                    },
+                    ['<S-Tab>'] = { 'select_prev', 'fallback' },
+                    ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+                    ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
                 },
-                completion = { documentation = { auto_show = true } },
+                completion = {
+                    menu = { auto_show = false },
+                    ghost_text = { enabled = true },
+                    documentation = {
+                        auto_show = true,
+                        auto_show_delay_ms = 100,
+                    },
+                },
                 sources = {
                   default = { 'lsp', 'path', 'snippets', 'buffer' },
                 },
