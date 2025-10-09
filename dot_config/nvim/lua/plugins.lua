@@ -113,10 +113,20 @@ require("lazy").setup({
                         function(cmp)
                             if cmp.is_menu_visible() then
                                 return cmp.select_next()
-                            elseif cmp.snippet_active() then
-                                return cmp.snippet_forward()
+                            -- elseif cmp.snippet_active() then
+                            --     return cmp.snippet_forward()
                             elseif has_words_before() then
                                 return cmp.show()
+                            end
+                        end,
+                        'fallback',
+                    },
+                    ['<Enter>'] = {
+                        function(cmp)
+                            if cmp.is_menu_visible() then
+                                return cmp.accept()
+                            elseif cmp.snippet_active() then
+                                return cmp.snippet_forward()
                             end
                         end,
                         'fallback',
@@ -127,7 +137,11 @@ require("lazy").setup({
                 },
                 completion = {
                     menu = { auto_show = false },
-                    ghost_text = { enabled = true },
+                    ghost_text = {
+                        enabled = true,
+                        show_without_selection = false,
+                        show_without_menu = false,
+                    },
                     documentation = {
                         auto_show = true,
                         auto_show_delay_ms = 100,
