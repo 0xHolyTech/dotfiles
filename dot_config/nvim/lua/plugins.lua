@@ -111,6 +111,7 @@ require("lazy").setup({
         {
             'saghen/blink.cmp',
             version = '1.*',
+            dependencies = { 'hrsh7th/nvim-cmp' },
             opts = {
                 snippets = { preset = 'luasnip' },
                 sources = {
@@ -234,56 +235,6 @@ require("lazy").setup({
                 --   If not available, we use `mini` as the fallback
                 "rcarriga/nvim-notify",
             }
-        },
-        {
-            "yetone/avante.nvim",
-            build = "make",
-            event = "VeryLazy",
-            version = false, -- Never set this value to "*"! Never!
-            ---@module 'avante'
-            ---@type avante.Config
-            opts = {
-                instructions_file = "avante.md",
-                provider = "ollama",
-                providers = {
-                    ollama = {
-                        endpoint = "http://127.0.0.1:11434", -- Note that there is no /v1 at the end.
-                        model = "qwen2.5-coder:3b",
-                    },
-                },
-            },
-            dependencies = {
-                "nvim-lua/plenary.nvim",
-                "MunifTanjim/nui.nvim",
-                --- The below dependencies are optional,
-                "echasnovski/mini.pick", -- for file_selector provider mini.pick
-                "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-                "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-                "ibhagwan/fzf-lua", -- for file_selector provider fzf
-                "stevearc/dressing.nvim", -- for input provider dressing
-                "folke/snacks.nvim", -- for input provider snacks
-                "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-                {
-                    "HakonHarnes/img-clip.nvim",
-                    event = "VeryLazy",
-                    opts = {
-                        default = {
-                            embed_image_as_base64 = false,
-                            prompt_for_file_name = false,
-                            drag_and_drop = {
-                                insert_mode = true,
-                            },
-                        },
-                    },
-                },
-                {
-                    'MeanderingProgrammer/render-markdown.nvim',
-                    opts = {
-                        file_types = { "markdown", "Avante" },
-                    },
-                    ft = { "markdown", "Avante" },
-                },
-            },
         },
         {
             dir = '~/Public/amai.nvim',
