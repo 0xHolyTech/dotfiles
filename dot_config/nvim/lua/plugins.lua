@@ -88,9 +88,9 @@ require("lazy").setup({
         {
             "neovim/nvim-lspconfig",
             dependencies = {
-                {'williamboman/mason-lspconfig.nvim'},
-                {'hrsh7th/cmp-nvim-lsp'},
-                {'L3MON4D3/LuaSnip'},
+                'williamboman/mason-lspconfig.nvim',
+                'hrsh7th/cmp-nvim-lsp',
+                'L3MON4D3/LuaSnip',
             },
         },
         {
@@ -102,10 +102,21 @@ require("lazy").setup({
         },
         -- { 'gbprod/none-ls-shellcheck.nvim' },
         {
+            "rafamadriz/friendly-snippets",
+            dependencies = { 'L3MON4D3/LuaSnip' },
+            config = function()
+                require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
+            end,
+        },
+        {
             'saghen/blink.cmp',
-            dependencies = { 'rafamadriz/friendly-snippets' },
             version = '1.*',
             opts = {
+                snippets = { preset = 'luasnip' },
+                sources = {
+                    default = { 'lsp', 'path', 'snippets', 'buffer' },
+                },
+                fuzzy = { implementation = "prefer_rust_with_warning" },
                 -- See :h blink-cmp-config-keymap for defining your own keymap
                 keymap = {
                     preset = 'enter',
@@ -113,8 +124,6 @@ require("lazy").setup({
                         function(cmp)
                             if cmp.is_menu_visible() then
                                 return cmp.select_next()
-                            -- elseif cmp.snippet_active() then
-                            --     return cmp.snippet_forward()
                             elseif has_words_before() then
                                 return cmp.show()
                             end
@@ -147,10 +156,6 @@ require("lazy").setup({
                         auto_show_delay_ms = 100,
                     },
                 },
-                sources = {
-                  default = { 'lsp', 'path', 'snippets', 'buffer' },
-                },
-                fuzzy = { implementation = "prefer_rust_with_warning" }
             },
             opts_extend = { "sources.default" }
         },
