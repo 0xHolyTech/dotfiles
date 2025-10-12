@@ -183,11 +183,12 @@ require('lazy').setup({
                 'neovim/nvim-lspconfig',
                 { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } }
             },
-            lazy = false,
-            branch = 'regexp',
+            ft = "python",
+            branch = 'main',
             keys = {
                 { '<leader>mv', '<cmd>VenvSelect<cr>' }, -- Open picker on keymap
             },
+            opts = {},
         }, -- <leader>mv change current venv environment
         { 'f-person/git-blame.nvim' },
         {
