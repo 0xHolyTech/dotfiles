@@ -1,13 +1,13 @@
 -- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+    local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
     if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
-            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out, "WarningMsg" },
-            { "\nPress any key to exit..." },
+            { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+            { out, 'WarningMsg' },
+            { '\nPress any key to exit...' },
         }, true, {})
         vim.fn.getchar()
         os.exit(1)
@@ -17,24 +17,24 @@ end
 local has_words_before = function()
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 vim.opt.rtp:prepend(lazypath)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-require("lazy").setup({
+require('lazy').setup({
     spec = {
-        { "folke/tokyonight.nvim", config = function() vim.cmd.colorscheme "tokyonight" end },
+        { 'folke/tokyonight.nvim', config = function() vim.cmd.colorscheme 'tokyonight' end },
         {
-            "mikavilpas/yazi.nvim",
-            event = "VeryLazy",
-            dependencies = { "folke/snacks.nvim", lazy = true },
+            'mikavilpas/yazi.nvim',
+            event = 'VeryLazy',
+            dependencies = { 'folke/snacks.nvim', lazy = true },
             opts = {
                 open_for_directories = false,
                 keymaps = {
-                    show_help = "<f1>",
+                    show_help = '<f1>',
                 },
             },
             init = function()
@@ -86,7 +86,7 @@ require("lazy").setup({
             end,
         },
         {
-            "neovim/nvim-lspconfig",
+            'neovim/nvim-lspconfig',
             dependencies = {
                 'williamboman/mason-lspconfig.nvim',
                 'hrsh7th/cmp-nvim-lsp',
@@ -102,10 +102,10 @@ require("lazy").setup({
         },
         -- { 'gbprod/none-ls-shellcheck.nvim' },
         {
-            "rafamadriz/friendly-snippets",
+            'rafamadriz/friendly-snippets',
             dependencies = { 'L3MON4D3/LuaSnip' },
             config = function()
-                require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
+                require('luasnip.loaders.from_vscode').lazy_load({ paths = { vim.fn.stdpath('config') .. '/snippets' } })
             end,
         },
         {
@@ -117,7 +117,7 @@ require("lazy").setup({
                 sources = {
                     default = { 'lsp', 'path', 'snippets', 'buffer' },
                 },
-                fuzzy = { implementation = "prefer_rust_with_warning" },
+                fuzzy = { implementation = 'prefer_rust_with_warning' },
                 -- See :h blink-cmp-config-keymap for defining your own keymap
                 keymap = {
                     preset = 'enter',
@@ -158,7 +158,7 @@ require("lazy").setup({
                     },
                 },
             },
-            opts_extend = { "sources.default" }
+            opts_extend = { 'sources.default' }
         },
         {
             'kylechui/nvim-surround',
@@ -186,14 +186,14 @@ require("lazy").setup({
             lazy = false,
             branch = 'regexp',
             keys = {
-                { "<leader>mv", "<cmd>VenvSelect<cr>" }, -- Open picker on keymap
+                { '<leader>mv', '<cmd>VenvSelect<cr>' }, -- Open picker on keymap
             },
         }, -- <leader>mv change current venv environment
         { 'f-person/git-blame.nvim' },
         {
             'folke/trouble.nvim',
             opts = {},
-            cmd = "Trouble",
+            cmd = 'Trouble',
             config = function()
                 require('trouble').setup({})
             end
@@ -216,24 +216,24 @@ require("lazy").setup({
         },
         { 'terryma/vim-multiple-cursors' }, -- v mode C-n
         {
-            "m4xshen/hardtime.nvim",
+            'm4xshen/hardtime.nvim',
             lazy = false,
-            dependencies = { "MunifTanjim/nui.nvim" },
+            dependencies = { 'MunifTanjim/nui.nvim' },
             opts = {},
         },
         {
-            "folke/noice.nvim",
-            event = "VeryLazy",
+            'folke/noice.nvim',
+            event = 'VeryLazy',
             opts = {
                 -- add any options here
             },
             dependencies = {
                 -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-                "MunifTanjim/nui.nvim",
+                'MunifTanjim/nui.nvim',
                 -- OPTIONAL:
                 --   `nvim-notify` is only needed, if you want to use the notification view.
                 --   If not available, we use `mini` as the fallback
-                "rcarriga/nvim-notify",
+                'rcarriga/nvim-notify',
             }
         },
         {
@@ -241,6 +241,9 @@ require("lazy").setup({
         },
         {
             dir = '~/Public/shortcuts.nvim',
+            dependencies = {
+                'skywind3000/asyncrun.vim',
+            }
         },
     },
     checker = { enabled = false },
