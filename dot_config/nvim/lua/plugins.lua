@@ -237,13 +237,13 @@ require('lazy').setup({
             }
         },
         {
+            'skywind3000/asyncrun.vim',
+        },
+        {
             dir = '~/Public/amai.nvim',
         },
         {
             dir = '~/Public/shortcuts.nvim',
-            dependencies = {
-                'skywind3000/asyncrun.vim',
-            }
         },
     },
     checker = { enabled = false },
