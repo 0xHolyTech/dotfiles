@@ -1,3 +1,4 @@
+require("config.aerial")
 require("config.cloak")
 require("config.gitsigns")
 require("config.godot")
