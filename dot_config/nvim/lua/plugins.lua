@@ -174,8 +174,9 @@ require('lazy').setup({
                 require('treesj').setup({
                     use_default_keymaps = false,
                     dot_repeat = false,
+                    max_join_length = 200,
                 })
-            end
+            end,
         }, -- <leader>sj (join) <leader>ss (split)
         {
             'linux-cultist/venv-selector.nvim',
