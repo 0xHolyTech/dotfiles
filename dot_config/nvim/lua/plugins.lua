@@ -142,8 +142,8 @@ require('lazy').setup({
                         'fallback',
                     },
                     ['<S-Tab>'] = { 'select_prev', 'fallback' },
-                    ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-                    ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+                    ['<C-j>'] = { 'scroll_documentation_up', 'fallback' },
+                    ['<C-k>'] = { 'scroll_documentation_down', 'fallback' },
                 },
                 completion = {
                     menu = { auto_show = false },
