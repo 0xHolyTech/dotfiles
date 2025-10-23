@@ -64,12 +64,13 @@ vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set('n', '<leader>pc', '<cmd>silent !tmux-closer<CR>')
 vim.keymap.set('n', '<leader>po', '<cmd>silent !byobu neww tmux-sessionizer<CR>')
+vim.keymap.set('n', '<C-r>', '<cmd>edit<CR>')
 
 -- Trouble config
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
