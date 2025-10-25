@@ -239,7 +239,7 @@ require('lazy').setup({
                 "nvim-treesitter/nvim-treesitter",
                 "nvim-tree/nvim-web-devicons"
             },
-        },
+        }, -- <leader>ta open aerial menu
         {
             'skywind3000/asyncrun.vim',
         },
