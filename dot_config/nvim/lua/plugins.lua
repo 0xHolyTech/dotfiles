@@ -241,6 +241,14 @@ require('lazy').setup({
             },
         }, -- <leader>ta open aerial menu
         {
+            "olimorris/codecompanion.nvim",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "nvim-treesitter/nvim-treesitter",
+                "ravitemer/mcphub.nvim",
+            },
+        },
+        {
             'skywind3000/asyncrun.vim',
         },
         {
