@@ -247,6 +247,19 @@ require('lazy').setup({
                 "nvim-treesitter/nvim-treesitter",
                 "ravitemer/mcphub.nvim",
             },
+            adapters = {
+                http = {
+                    ollama = function()
+                        return require("codecompanion.adapters").extend("ollama", {
+                            schema = {
+                                model = {
+                                    default = "qwen3-coder:30b",
+                                },
+                            },
+                        })
+                    end,
+                },
+            },
         },
         {
             'skywind3000/asyncrun.vim',
