@@ -1,8 +1,20 @@
 require("codecompanion").setup({
+    adapters = {
+        http = {
+            ollama = function()
+                return require("codecompanion.adapters").extend("ollama", {
+                    schema = {
+                        model = {
+                            default = "qwen3-coder:30b",
+                        },
+                    },
+                })
+            end,
+        },
+    },
     strategies = {
         chat = {
-            name = "ollama",
-            model = "qwen3-coder:30b",
+            adapter = "ollama",
         },
         inline = {
             adapter = "ollama",
