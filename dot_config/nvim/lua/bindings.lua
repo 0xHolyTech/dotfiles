@@ -64,7 +64,7 @@ vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set('n', '<leader>pc', '<cmd>silent !tmux-closer<CR>')
 vim.keymap.set('n', '<leader>po', '<cmd>silent !byobu neww tmux-sessionizer<CR>')
-vim.keymap.set('n', '<C-r>', '<cmd>edit<CR>')
+vim.keymap.set('n', '<S-r>', '<cmd>edit<CR>')
 
 -- Trouble config
 -- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
