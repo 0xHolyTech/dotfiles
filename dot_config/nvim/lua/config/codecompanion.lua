@@ -19,6 +19,9 @@ require("codecompanion").setup({
         inline = {
             adapter = "ollama",
         },
+        cmd = {
+            adapter = "ollama",
+        },
     },
     opts = {
         log_level = "DEBUG", -- or "TRACE"
