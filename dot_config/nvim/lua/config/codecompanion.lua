@@ -1,7 +1,16 @@
 require("codecompanion").setup({
-  opts = {
-    log_level = "DEBUG", -- or "TRACE"
-  }
+    strategies = {
+        chat = {
+            name = "ollama",
+            model = "qwen3-coder:30b",
+        },
+        inline = {
+            adapter = "ollama",
+        },
+    },
+    opts = {
+        log_level = "DEBUG", -- or "TRACE"
+    }
 })
 
 vim.keymap.set("n", "<leader>cp", "<cmd>CodeCompanion<CR>", {})
