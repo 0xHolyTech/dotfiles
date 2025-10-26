@@ -197,7 +197,20 @@ require('lazy').setup({
             keys = {
                 { '<leader>mv', '<cmd>VenvSelect<cr>' }, -- Open picker on keymap
             },
-            opts = {},
+            config = function()
+                local og_notify = vim.notify
+
+                require("venv-selector").setup({})
+
+                vim.schedule(function()
+                    if type(vim.notify) ~= "function" and type(og_notify) == "function" then
+                        vim.notify = og_notify
+                    end
+                end)
+            end,
+            opts = {
+                notify_user_on_venv_activation = false,
+            },
         }, -- <leader>mv change current venv environment
         { 'f-person/git-blame.nvim' },
         {
