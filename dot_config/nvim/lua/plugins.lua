@@ -30,7 +30,15 @@ require('lazy').setup({
         {
             'mikavilpas/yazi.nvim',
             event = 'VeryLazy',
-            dependencies = { 'folke/snacks.nvim', lazy = true },
+            dependencies = {
+                'folke/snacks.nvim',
+                lazy = true,
+                opts = {
+                    notifier = {
+                        enabled = false,
+                    },
+                },
+            },
             opts = {
                 open_for_directories = false,
                 keymaps = {
