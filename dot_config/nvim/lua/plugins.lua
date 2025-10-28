@@ -66,7 +66,16 @@ require('lazy').setup({
             'nvim-telescope/telescope.nvim', tag = '0.1.4',
             dependencies = {{ 'nvim-lua/plenary.nvim' }}
         }, -- sF (find term in project) sf (find files in project) sg (find git)
-        { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+        {
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate',
+                dependencies = {
+                {
+                    'bx2/tree-sitter-wasp',
+                    run = ':TSInstall wasp',
+                }
+            },
+        },
         { 'mbbill/undotree' }, -- tu
         {
             'nvim-lualine/lualine.nvim',
