@@ -1,9 +1,7 @@
+local util = require('lspconfig.util')
+
 return {
     cmd = { 'typescript-language-server', '--stdio' },
-    root_dir = function(bufnr, on_dir)
-        local root_markers = { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', 'bun.lock' }
-        local project_root = vim.fs.root(bufnr, root_markers) or vim.fn.getcwd()
-
-        on_dir(project_root)
-    end,
+    root_dir = util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
+    filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'typescript.jsx', 'javascript.jsx' },
 }
