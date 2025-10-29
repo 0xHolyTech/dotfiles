@@ -875,6 +875,7 @@ exts = [
 	{ name = "vsix", text = "", fg = "#854cc7" },
 	{ name = "vue", text = "", fg = "#8dc149" },
 	{ name = "wasm", text = "", fg = "#5c4cdb" },
+	{ name = "wasp", text = "🐝", fg = "#ff4c1f" },
 	{ name = "wav", text = "", fg = "#00afff" },
 	{ name = "webm", text = "", fg = "#fd971f" },
 	{ name = "webmanifest", text = "", fg = "#f1e05a" },
