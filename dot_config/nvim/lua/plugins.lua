@@ -299,7 +299,10 @@ require('lazy').setup({
         },
         {
             "trixnz/sops.nvim",
-            lazy = false
+            lazy = false,
+            opts = {
+                disabled = true,
+            },
         },
         {
             'skywind3000/asyncrun.vim',
