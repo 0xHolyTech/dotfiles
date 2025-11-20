@@ -1,19 +1,22 @@
 require('mason').setup({
   ensure_installed = {
       "black",
-      "yamlfmt",
       "debugpy",
       "shellcheck", -- Doesn't work with null_ls, manually install
+      "yamlfmt",
   },
 })
 require('mason-lspconfig').setup({
     ensure_installed = {
-        "gopls",
+        "astro",
         "basedpyright",
-        "dockerls",
-        "yamlls",
         "bashls",
+        "dockerls",
+        "docker_compose_language_service",
+        "gopls",
         "lua_ls",
+        "ts_ls",
+        "yamlls",
     },
     handlers = {
         function(server_name)
