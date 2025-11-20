@@ -15,6 +15,8 @@ require('mason-lspconfig').setup({
         "docker_compose_language_service",
         "gopls",
         "lua_ls",
+        "postgres_lsp",
+        "terraformls",
         "ts_ls",
         "yamlls",
     },
