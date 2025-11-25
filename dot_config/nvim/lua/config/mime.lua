@@ -9,3 +9,5 @@ set_filetype({ "docker-compose.yml", "docker-compose.yaml" }, "yaml.docker-compo
 
 set_filetype({ "*.wasp", "main.wasp" }, "wasp")
 
+set_filetype({ "*.values.yaml", "*.values.yml" }, "helm")
+
