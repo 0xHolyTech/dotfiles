@@ -303,6 +303,11 @@ require('lazy').setup({
             dependencies = {"nvim-treesitter/nvim-treesitter"}
         },
         {
+            "qvalentin/helm-ls.nvim",
+            ft = "helm",
+            opts = {},
+        },
+        {
             "trixnz/sops.nvim",
             lazy = false,
             opts = {
