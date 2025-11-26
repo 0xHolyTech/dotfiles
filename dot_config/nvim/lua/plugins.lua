@@ -302,6 +302,7 @@ require('lazy').setup({
             config = true,
             dependencies = {"nvim-treesitter/nvim-treesitter"}
         },
+        { 'diogo464/kubernetes.nvim' },
         {
             "trixnz/sops.nvim",
             lazy = false,
