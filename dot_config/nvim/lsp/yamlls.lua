@@ -1,4 +1,9 @@
 return {
+    redhat = {
+        telemetry = {
+            enabled = false,
+        },
+    },
     settings = {
         yaml = {
             schemas = {
