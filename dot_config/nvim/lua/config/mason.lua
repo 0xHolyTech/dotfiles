@@ -16,6 +16,7 @@ require('mason-lspconfig').setup({
         "gopls",
         "helm_ls",
         "lua_ls",
+        "nginx_language_server",
         "postgres_lsp",
         "terraformls",
         "ts_ls",

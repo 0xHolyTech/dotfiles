@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-vim.lsp.enable({ 'astro', 'basedpyright', 'gdscript', 'gopls', 'helm_ls', 'lua_ls', 'ts_ls', 'waspls' })
+vim.lsp.enable({ 'astro', 'basedpyright', 'gdscript', 'gopls', 'helm_ls', 'lua_ls', 'nginx_language_server', 'ts_ls', 'waspls' })
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
