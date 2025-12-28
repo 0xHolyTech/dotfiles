@@ -238,7 +238,7 @@ require('lazy').setup({
                 vim.g.vimtex_view_method = 'zathura'
                 vim.g.vimtex_view_general_viewer = 'okular'
             end
-        },
+        }, -- ll start compiling and open zathura
         {
             'rcarriga/nvim-dap-ui',
             dependencies = {
