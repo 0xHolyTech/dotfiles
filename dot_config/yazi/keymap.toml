@@ -74,7 +74,7 @@ keymap = [
 	{ on = "X",         	run = "unyank",                      desc = "Cancel the yank status" },
 	{ on = [ "d", "d" ],	run = "remove",                      desc = "Trash selected files" },
 	{ on = [ "d", "D" ],	run = "remove --permanently",        desc = "Permanently delete selected files" },
-	# { on = "a",         	run = "create",                      desc = "Create a file (ends with / for directories)" },
+	{ on = "a",         	run = "create",                      desc = "Create a file (ends with / for directories)" },
 	{ on = "i",         	run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
 	{ on = "s",         	run = "shell --interactive",         desc = "Run a shell command" },
 	{ on = "S",         	run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
