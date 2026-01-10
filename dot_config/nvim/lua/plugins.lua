@@ -248,12 +248,6 @@ require('lazy').setup({
         },
         { 'terryma/vim-multiple-cursors' }, -- v mode C-n
         {
-            'm4xshen/hardtime.nvim',
-            lazy = false,
-            dependencies = { 'MunifTanjim/nui.nvim' },
-            opts = {},
-        },
-        {
             'folke/noice.nvim',
             event = 'VeryLazy',
             opts = {},
