@@ -264,27 +264,27 @@ require('lazy').setup({
                 "nvim-tree/nvim-web-devicons"
             },
         }, -- <leader>ta open aerial menu
-        {
-            "olimorris/codecompanion.nvim",
-            dependencies = {
-                "nvim-lua/plenary.nvim",
-                "nvim-treesitter/nvim-treesitter",
-                "ravitemer/mcphub.nvim",
-            },
-            adapters = {
-                http = {
-                    ollama = function()
-                        return require("codecompanion.adapters").extend("ollama", {
-                            schema = {
-                                model = {
-                                    default = "qwen3-coder:30b",
-                                },
-                            },
-                        })
-                    end,
-                },
-            },
-        },
+        -- {
+        --     "olimorris/codecompanion.nvim",
+        --     dependencies = {
+        --         "nvim-lua/plenary.nvim",
+        --         "nvim-treesitter/nvim-treesitter",
+        --         "ravitemer/mcphub.nvim",
+        --     },
+        --     adapters = {
+        --         http = {
+        --             ollama = function()
+        --                 return require("codecompanion.adapters").extend("ollama", {
+        --                     schema = {
+        --                         model = {
+        --                             default = "qwen3-coder:30b",
+        --                         },
+        --                     },
+        --                 })
+        --             end,
+        --         },
+        --     },
+        -- },
         {
             'nvim-treesitter/nvim-treesitter-context',
             dependencies = {
@@ -296,7 +296,37 @@ require('lazy').setup({
             config = true,
             dependencies = {"nvim-treesitter/nvim-treesitter"}
         },
-        { 'diogo464/kubernetes.nvim' },
+        -- { 'diogo464/kubernetes.nvim' },
+        {
+            "NickvanDyke/opencode.nvim",
+            dependencies = {
+                { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+            },
+            config = function()
+                ---@type opencode.Opts
+                vim.g.opencode_opts = {
+                  -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
+                }
+
+                -- Required for `opts.events.reload`.
+                vim.o.autoread = true
+
+                -- Recommended/example keymaps.
+                vim.keymap.set({ "n", "x" }, "<leader>ca", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
+                vim.keymap.set({ "n", "x" }, "<leader>cs", function() require("opencode").select() end,                          { desc = "Execute opencode action…" })
+                vim.keymap.set("n", "<leader>tc", function() require("opencode").toggle() end,                          { desc = "Toggle opencode" })
+
+                vim.keymap.set({ "n", "x" }, "<leader>cg",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
+                vim.keymap.set("n",          "<leader>cG", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
+
+                -- vim.keymap.set("n", "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   { desc = "Scroll opencode up" })
+                -- vim.keymap.set("n", "<S-C-d>", function() require("opencode").command("session.half.page.down") end, { desc = "Scroll opencode down" })
+
+                -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o…".
+                -- vim.keymap.set("n", "+", "<C-c>", { desc = "Increment under cursor", noremap = true })
+                -- vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
+            end,
+        },
         {
             "trixnz/sops.nvim",
             lazy = false,
@@ -317,5 +347,4 @@ require('lazy').setup({
     },
     checker = { enabled = false },
 })
-
 
