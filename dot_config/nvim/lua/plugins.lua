@@ -338,12 +338,19 @@ require('lazy').setup({
             dir = '~/Public/amai.nvim',
         },
         {
-            '0xHolyTech/shortcuts.nvim',
+            dir = '~/Public/shortcuts.nvim',
             dependencies = {
                 'skywind3000/asyncrun.vim',
                 'MunifTanjim/nui.nvim',
             },
         },
+        -- {
+        --     '0xHolyTech/shortcuts.nvim',
+        --     dependencies = {
+        --         'skywind3000/asyncrun.vim',
+        --         'MunifTanjim/nui.nvim',
+        --     },
+        -- },
     },
     checker = { enabled = false },
 })
