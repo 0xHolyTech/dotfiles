@@ -264,38 +264,17 @@ require('lazy').setup({
                 "nvim-tree/nvim-web-devicons"
             },
         }, -- <leader>ta open aerial menu
-        -- {
-        --     "olimorris/codecompanion.nvim",
-        --     dependencies = {
-        --         "nvim-lua/plenary.nvim",
-        --         "nvim-treesitter/nvim-treesitter",
-        --         "ravitemer/mcphub.nvim",
-        --     },
-        --     adapters = {
-        --         http = {
-        --             ollama = function()
-        --                 return require("codecompanion.adapters").extend("ollama", {
-        --                     schema = {
-        --                         model = {
-        --                             default = "qwen3-coder:30b",
-        --                         },
-        --                     },
-        --                 })
-        --             end,
-        --         },
-        --     },
-        -- },
         {
             'nvim-treesitter/nvim-treesitter-context',
             dependencies = {
                 "nvim-treesitter/nvim-treesitter",
             },
         },
-        {
-            "davidmh/mdx.nvim",
-            config = true,
-            dependencies = {"nvim-treesitter/nvim-treesitter"}
-        },
+        -- {
+        --     "davidmh/mdx.nvim",
+        --     config = true,
+        --     dependencies = {"nvim-treesitter/nvim-treesitter"}
+        -- },
         -- { 'diogo464/kubernetes.nvim' },
         {
             "NickvanDyke/opencode.nvim",
@@ -337,20 +316,20 @@ require('lazy').setup({
         {
             dir = '~/Public/amai.nvim',
         },
-        {
-            dir = '~/Public/shortcuts.nvim',
-            dependencies = {
-                'skywind3000/asyncrun.vim',
-                'MunifTanjim/nui.nvim',
-            },
-        },
         -- {
-        --     '0xHolyTech/shortcuts.nvim',
+        --     dir = '~/Public/shortcuts.nvim',
         --     dependencies = {
         --         'skywind3000/asyncrun.vim',
         --         'MunifTanjim/nui.nvim',
         --     },
         -- },
+        {
+            '0xHolyTech/shortcuts.nvim',
+            dependencies = {
+                'skywind3000/asyncrun.vim',
+                'MunifTanjim/nui.nvim',
+            },
+        },
     },
     checker = { enabled = false },
 })
