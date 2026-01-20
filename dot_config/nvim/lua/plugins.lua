@@ -270,11 +270,10 @@ require('lazy').setup({
                 "nvim-treesitter/nvim-treesitter",
             },
         },
-        -- {
-        --     "davidmh/mdx.nvim",
-        --     config = true,
-        --     dependencies = {"nvim-treesitter/nvim-treesitter"}
-        -- },
+        {
+            "davidmh/mdx.nvim",
+            dependencies = {"nvim-treesitter/nvim-treesitter"}
+        },
         -- { 'diogo464/kubernetes.nvim' },
         {
             "NickvanDyke/opencode.nvim",
@@ -316,13 +315,6 @@ require('lazy').setup({
         {
             dir = '~/Public/amai.nvim',
         },
-        -- {
-        --     dir = '~/Public/shortcuts.nvim',
-        --     dependencies = {
-        --         'skywind3000/asyncrun.vim',
-        --         'MunifTanjim/nui.nvim',
-        --     },
-        -- },
         {
             '0xHolyTech/shortcuts.nvim',
             dependencies = {
