@@ -7,8 +7,7 @@ require('shortcuts').setup(
             python = {
                 n = {
                     l = {
-                      command_type = "async",
-                      async_type = "run",
+                      command_type = "background",
                       command = "uv run black ."
                     }
                 }
@@ -16,34 +15,27 @@ require('shortcuts').setup(
             docker = {
                 n = {
                     b = {
-                      command_type = "async",
-                      async_type = "term",
+                      command_type = "terminal",
                       command = "docker compose build"
                     },
                     u = {
-                      command_type = "async",
-                      async_type = "run",
+                      command_type = "background",
                       command = "docker compose up -d",
-                      notify = true
                     },
                     d = {
-                      command_type = "async",
-                      async_type = "run",
+                      command_type = "background",
                       command = "docker compose down",
-                      notify = true
                     },
                 },
             },
             golang = {
                 n = {
                     u = {
-                        command_type = "async",
-                        async_type = "term",
+                        command_type = "terminal",
                         command = "go run main.go",
                     },
                     b = {
-                        command_type = "async",
-                        async_type = "term",
+                        command_type = "terminal",
                         command = "go build main.go",
                     },
                 },
