@@ -20,6 +20,7 @@ require('mason-lspconfig').setup({
         "postgres_lsp",
         "terraformls",
         "ts_ls",
+        "vue_ls",
         "yamlls",
     },
     handlers = {
