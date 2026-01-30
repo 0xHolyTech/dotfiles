@@ -1,33 +1,33 @@
+local lsp = {
+    "astro",
+    "basedpyright",
+    "bashls",
+    "dockerls",
+    "docker_compose_language_service",
+    "gopls",
+    "helm_ls",
+    "lua_ls",
+    "nginx_language_server",
+    "postgres_lsp",
+    "terraformls",
+    "ts_ls",
+    "vue_ls",
+    "yamlls",
+}
+
+local formatters = {
+  "black",
+  "debugpy",
+  "shellcheck", -- Doesn't work with null_ls, manually install
+  "yamlfmt",
+}
+
 require('mason').setup({
-  ensure_installed = {
-      "black",
-      "debugpy",
-      "shellcheck", -- Doesn't work with null_ls, manually install
-      "yamlfmt",
-  },
+    ensure_installed = formatters
 })
+
 require('mason-lspconfig').setup({
-    ensure_installed = {
-        "astro",
-        "basedpyright",
-        "bashls",
-        "dockerls",
-        "docker_compose_language_service",
-        "gopls",
-        "helm_ls",
-        "lua_ls",
-        "nginx_language_server",
-        "postgres_lsp",
-        "terraformls",
-        "ts_ls",
-        "vue_ls",
-        "yamlls",
-    },
-    handlers = {
-        function(server_name)
-            vim.lsp.config(server_name).setup({})
-        end,
-    },
+    ensure_installed = lsp
 })
 
 local null_ls = require('null-ls')

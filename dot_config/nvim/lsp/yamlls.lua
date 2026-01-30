@@ -1,6 +1,6 @@
 -- require('kubernetes').setup()
 
-return {
+vim.lsp.config('yamlls', {
     redhat = {
         telemetry = {
             enabled = false,
@@ -19,4 +19,4 @@ return {
             },
         }
     }
-}
+})

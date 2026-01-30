@@ -1,6 +1,5 @@
 require("config.aerial")
 require("config.cloak")
--- require("config.codecompanion")
 require("config.gitsigns")
 require("config.godot")
 require("config.lazytools")
