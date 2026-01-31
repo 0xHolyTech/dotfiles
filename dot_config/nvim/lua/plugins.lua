@@ -222,6 +222,7 @@ require('lazy').setup({
         { 'f-person/git-blame.nvim' },
         {
             'folke/trouble.nvim',
+            dependencies = { 'artemave/workspace-diagnostics.nvim' },
             opts = {},
             cmd = 'Trouble',
             config = function()

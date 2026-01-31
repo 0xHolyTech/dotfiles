@@ -81,4 +81,11 @@ vim.keymap.set("t", "<C-w>h", "<c-\\><c-n><C-w>h")
 vim.keymap.set("t", "<C-w>l", "<c-\\><c-n><C-w>l")
 vim.deprecate = function() end
 
-
+vim.api.nvim_set_keymap('n', '<space>tD', '', {
+    noremap = true,
+    callback = function()
+        for _, client in ipairs(vim.lsp.buf_get_clients()) do
+            require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
+        end
+    end
+})
