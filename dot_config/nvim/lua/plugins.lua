@@ -117,7 +117,6 @@ require('lazy').setup({
                 'nvimtools/none-ls.nvim',
             },
         },
-        -- { 'gbprod/none-ls-shellcheck.nvim' },
         {
             'rafamadriz/friendly-snippets',
             dependencies = { 'L3MON4D3/LuaSnip' },
@@ -135,7 +134,6 @@ require('lazy').setup({
                     default = { 'lsp', 'path', 'snippets', 'buffer' },
                 },
                 fuzzy = { implementation = 'prefer_rust_with_warning' },
-                -- See :h blink-cmp-config-keymap for defining your own keymap
                 keymap = {
                     preset = 'enter',
                     ['<Tab>'] = {
@@ -239,6 +237,7 @@ require('lazy').setup({
                 vim.g.vimtex_view_general_viewer = 'okular'
             end
         }, -- ll start compiling and open zathura
+        { 'NoahTheDuke/vim-just' },
         {
             'rcarriga/nvim-dap-ui',
             dependencies = {
@@ -281,28 +280,15 @@ require('lazy').setup({
                 { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
             },
             config = function()
-                ---@type opencode.Opts
                 vim.g.opencode_opts = {
-                  -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
                 }
-
-                -- Required for `opts.events.reload`.
                 vim.o.autoread = true
-
-                -- Recommended/example keymaps.
                 vim.keymap.set({ "n", "x" }, "<leader>ca", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
                 vim.keymap.set({ "n", "x" }, "<leader>cs", function() require("opencode").select() end,                          { desc = "Execute opencode action…" })
                 vim.keymap.set("n", "<leader>tc", function() require("opencode").toggle() end,                          { desc = "Toggle opencode" })
 
                 vim.keymap.set({ "n", "x" }, "<leader>cg",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
                 vim.keymap.set("n",          "<leader>cG", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
-
-                -- vim.keymap.set("n", "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   { desc = "Scroll opencode up" })
-                -- vim.keymap.set("n", "<S-C-d>", function() require("opencode").command("session.half.page.down") end, { desc = "Scroll opencode down" })
-
-                -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o…".
-                -- vim.keymap.set("n", "+", "<C-c>", { desc = "Increment under cursor", noremap = true })
-                -- vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
             end,
         },
         {
