@@ -10,8 +10,8 @@
 # : Flavor {{{
 
 [flavor]
-dark  = "rose-pine"
-light = "rose-pine"
+dark  = ""
+light = ""
 
 # : }}}
 
