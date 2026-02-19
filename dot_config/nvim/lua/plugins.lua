@@ -245,6 +245,12 @@ require('lazy').setup({
                 vim.g.vimtex_view_general_viewer = 'okular'
             end
         }, -- ll start compiling and open zathura
+        {
+            'kevinhwang91/nvim-ufo',
+            dependencies = {
+                'kevinhwang91/promise-async',
+            },
+        }, -- za to toggle, zc/zo to "close" and "open", zC/zO to close/open all
         { 'NoahTheDuke/vim-just' },
         {
             'rcarriga/nvim-dap-ui',
