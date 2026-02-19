@@ -445,3 +445,8 @@ on  = [ "<Space>", "l", "d" ]
 run  = "plugin lazydocker"
 desc = "run lazydocker"
 
+[[mgr.prepend_keymap]]
+# Mnemonic: "[T]oggle preview"
+on   = [ "z", "i" ]
+run  = "plugin toggle-pane min-preview"
+desc = "Hide or show preview pane"
