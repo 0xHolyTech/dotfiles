@@ -47,7 +47,15 @@ require('shortcuts').setup(
                         command_type = "lua",
                     }
                 }
-            }
+            },
+            javascript = {
+                n = {
+                    u = {
+                        command = "npm run dev",
+                        command_type = "terminal",
+                    }
+                }
+            },
         },
     }
 )
