@@ -1,4 +1,4 @@
-vim.lsp.config('vue_ls', {
+return {
     cmd = { "vue-language-server", "--stdio" },
     root_markers = { 'package.json' },
     filetypes = { 'vue' },
@@ -43,4 +43,4 @@ vim.lsp.config('vue_ls', {
 
         client.handlers['tsserver/request'] = typescriptHandler
     end,
-})
+}

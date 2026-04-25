@@ -1,4 +1,4 @@
-vim.lsp.config('helm_ls', {
+return {
     settings = {
         ['helm-ls'] = {
             valuesFiles = {
@@ -15,4 +15,4 @@ vim.lsp.config('helm_ls', {
             }
         }
     }
-})
+}

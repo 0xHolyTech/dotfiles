@@ -1,4 +1,4 @@
-vim.lsp.config('gopls', {
+return {
     cmd = { 'gopls' },
     settings = {
         gopls = {
@@ -9,4 +9,4 @@ vim.lsp.config('gopls', {
             },
         },
     }
-})
+}

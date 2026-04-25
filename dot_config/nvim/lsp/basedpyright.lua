@@ -1,4 +1,4 @@
-vim.lsp.config('basedpyright', {
+return {
     settings = {
         basedpyright = {
             analysis = {
@@ -10,4 +10,4 @@ vim.lsp.config('basedpyright', {
             },
         },
     },
-})
+}
