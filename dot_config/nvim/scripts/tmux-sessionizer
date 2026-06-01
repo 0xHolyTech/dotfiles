@@ -5,7 +5,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/.config/dotfiles ~/Games ~/Public ~/Documents/Obsidian -maxdepth 2 -type d -name .git -o -name .godot | fzf)
+    selected=$(find ~/.config/dotfiles ~/Games ~/Public ~/Templates/Work ~/Documents/Obsidian -maxdepth 2 -type d -name .git -o -name .godot | fzf)
 fi
 
 if [[ -z $selected ]]; then
