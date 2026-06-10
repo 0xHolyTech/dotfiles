@@ -1,16 +1,17 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "lua", "vim", "vimdoc", "query", "javascript", "typescript", "python", "go", "yaml", "helm" },
-  sync_install = false,
-  auto_install = true,
-  ignore_install = { "javascript" },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-}
+require('nvim-treesitter').install({ "markdown", "markdown_inline", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "python", "go", "yaml", "helm" })
 
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.wasp = {
+-- require'nvim-treesitter.configs'.setup {
+--   ensure_installed = { "markdown", "markdown_inline", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "python", "go", "yaml", "helm" },
+--   sync_install = false,
+--   auto_install = true,
+--   ignore_install = { "javascript" },
+--   highlight = {
+--     enable = true,
+--     additional_vim_regex_highlighting = false,
+--   },
+-- }
+
+require("nvim-treesitter").wasp = {
   install_info = {
     url = "https://github.com/bx2/tree-sitter-wasp", -- local path or git repo
     files = {"src/parser.c"}, -- note that some parsers also require src/scanner.c or src/scanner.cc

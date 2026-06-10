@@ -63,8 +63,11 @@ require('lazy').setup({
             },
         }, -- ld + terminal shortcuts + lazydocker shortcuts TODO (Configure)
         {
-            'nvim-telescope/telescope.nvim', tag = '0.1.4',
-            dependencies = {{ 'nvim-lua/plenary.nvim' }}
+            'nvim-telescope/telescope.nvim', tag = 'v0.2.1',
+            dependencies = {
+                'nvim-lua/plenary.nvim',
+                { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+            }
         }, -- sF (find term in project) sf (find files in project) sg (find git)
         {
             'nvim-treesitter/nvim-treesitter',
@@ -75,6 +78,7 @@ require('lazy').setup({
                     run = ':TSInstall wasp',
                 }
             },
+	    lazy = false,
         },
         { 'mbbill/undotree' }, -- tu
         {
@@ -204,7 +208,7 @@ require('lazy').setup({
             'linux-cultist/venv-selector.nvim',
             dependencies = {
                 'neovim/nvim-lspconfig',
-                { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } }
+                { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } }
             },
             ft = "python",
             branch = 'main',
@@ -322,6 +326,14 @@ require('lazy').setup({
                 'MunifTanjim/nui.nvim',
             },
         },
+        {
+            "cenk1cenk2/jq.nvim",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "MunifTanjim/nui.nvim",
+                "grapp-dev/nui-components.nvim",
+            },
+        }
     },
     checker = { enabled = false },
 })
