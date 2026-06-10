@@ -1,6 +1,9 @@
-require('lualine').setup {
-  options = {
-    theme = 'palenight',
-  },
-}
+require('lualine').setup({
+    sections = {
+        lualine_c = { { 'filename', path = 1 } }
+    },
+    options = {
+        theme = 'palenight',
+    },
+})
 

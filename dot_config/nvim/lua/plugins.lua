@@ -84,13 +84,6 @@ require('lazy').setup({
         {
             'nvim-lualine/lualine.nvim',
             dependencies = { 'nvim-tree/nvim-web-devicons' },
-            config = function()
-                require('lualine').setup({
-                    sections = {
-                        lualine_c = { { 'filename', path = 1 } }
-                    },
-                })
-            end,
         },
         {
             'max397574/better-escape.nvim',
@@ -109,9 +102,6 @@ require('lazy').setup({
         }, -- insert or command mode jj/jk TODO Remove for actual shortcuts
         {
             'lewis6991/gitsigns.nvim',
-            config = function()
-                require('gitsigns').setup()
-            end,
         },
         {
             'neovim/nvim-lspconfig',
@@ -236,9 +226,6 @@ require('lazy').setup({
             dependencies = { 'artemave/workspace-diagnostics.nvim' },
             opts = {},
             cmd = 'Trouble',
-            config = function()
-                require('trouble').setup({})
-            end
         }, -- td toggle diagnostics
         { 'laytan/cloak.nvim' },
         {
