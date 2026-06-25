@@ -31,7 +31,7 @@ ueberzug_offset = [ 12, 3.5, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = 'tuxedo-dir && export NVIM_SOCKET=$(mktemp -u -t nvim_XXXX.pipe) && nvim --listen $NVIM_SOCKET "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	{ run = 'export TODO_DIR=$(tuxedo-dir) && export NVIM_SOCKET=$(mktemp -u -t nvim_XXXX.pipe) && nvim --listen $NVIM_SOCKET "$@"', desc = "$EDITOR", block = true, for = "unix" },
 ]
 open = [
 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
