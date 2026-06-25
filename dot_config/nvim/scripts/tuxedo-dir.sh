@@ -7,7 +7,7 @@ else
     CurrentDir=$(pwd)
 fi
 
-TUXEDO_DIR="~/.local/share/nvim/tuxedo"
+TUXEDO_DIR="$HOME/.local/share/nvim/tuxedo"
 TUXEDO_FOLDER="${CurrentDir//\//\.}"
 TODO_DIR="${TUXEDO_DIR}/${TUXEDO_FOLDER}"
 
