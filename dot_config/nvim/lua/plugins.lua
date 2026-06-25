@@ -320,6 +320,9 @@ require('lazy').setup({
                 "MunifTanjim/nui.nvim",
                 "grapp-dev/nui-components.nvim",
             },
+        },
+        {
+            'IogaMaster/tuxedo.nvim',
         }
     },
     checker = { enabled = false },
